@@ -1,8 +1,11 @@
 # Steersuite
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/steersuite`. To experiment with that code, run `bin/console` for an interactive prompt.
+Steersuite is a Ruby gem that provides a Ruby interface to the SteerSuite C++ library. SteerSuite is a 
+physics-based simulation library for autonomous agents. It provides a set of tools for simulating
+autonomous agents in complex environments.
 
-TODO: Delete this and the text above, and describe your gem
+Currently, the Steersuite gem only supports the control of autonomous agents in the simulation and
+the post-processing of SteerSuite simulation data.
 
 ## Installation
 
@@ -22,7 +25,33 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Command Line Interface
+
+#### Plotting Simulation Data
+
+```bash
+$ plot.rb source_file  # This will plot the simulation data in source_file with results in source_file.png
+```
+
+### Ruby Interface
+
+#### Loading Simulation Data
+
+```ruby
+require 'steersuite'
+
+# Load the simulation data from a file
+Steersuite::SteersimResult.from_file('source.bin')
+```
+
+#### Plotting Simulation Data
+
+```ruby
+require 'steersuite'
+
+Steersuite::SteersimPlot.plot_file('source.bin', 'destination.png')
+```
+
 
 ## Development
 
