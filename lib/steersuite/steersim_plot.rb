@@ -77,7 +77,7 @@ module Steersuite
       gp.set "size ratio -1"
       gp.unset "xtics"
       gp.unset "ytics"
-      gp.debug_on
+      gp.debug_on if $DEBUG
       gp.plot(*get_plot_data(data))
       gp.output filename.to_s
     end
