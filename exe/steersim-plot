@@ -5,7 +5,7 @@ require 'tqdm'
 require "steersuite"
 
 
-if $help
+if $help || ARGV.empty?
   puts "Usage: plot.rb [-to=DIR] FILE [FILE...]"
   exit 0
 end
