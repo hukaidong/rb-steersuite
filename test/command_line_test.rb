@@ -9,7 +9,7 @@ class CommandLineTest < Minitest::Test
   def test_if_plot_works
     Dir.mktmpdir do |dir|
       test_file = File.join(dir, "sample.png")
-      system("exe/plot.rb -to=#{dir} test/data/sample.bin")
+      system("exe/steersim-plot -to=#{dir} test/data/sample.bin")
       assert File.exist?(test_file)
       assert_file_equal(test_file, "test/data/sample.png")
     end
