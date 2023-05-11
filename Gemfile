@@ -9,6 +9,3 @@ gem "minitest", "~> 5.0"
 gem "pry", "~> 0.14.2"
 gem "rake", "~> 13.0"
 gem "rubocop", "~> 0.80"
-
-gem "tqdm"
-gem "numo-gnuplot"
