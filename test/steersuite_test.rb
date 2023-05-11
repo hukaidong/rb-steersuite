@@ -27,6 +27,23 @@ class SteersuiteTest < Minitest::Test
     end
   end
 
+  def test_if_readbin_works_with_io
+    file = File.open("test/data/sample.bin", "rb")
+    assert Steersuite::SteersimResult.from_file(file).agent_data
+  end
+
+  def test_if_writebin_works_with_io
+    from_file = File.open("test/data/sample.bin", "rb")
+    to_file = StringIO.new
+    to_file.set_encoding(from_file.external_encoding)
+
+    data = Steersuite::SteersimResult.from_file(from_file)
+    data.to_file(to_file)
+
+    source = File.read("test/data/sample.bin", mode: "rb")
+    assert_equal(source, to_file.string)
+  end
+
   def test_if_plot_works
     Dir.mktmpdir do |dir|
       test_file = File.join(dir, "test.png")
