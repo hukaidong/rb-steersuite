@@ -31,10 +31,11 @@ module Steersuite
       [[xmin, ymin], [xmax, ymin], [xmax, ymax], [xmin, ymax]]
     end
 
-    def rectangle2(center, width, height, theta) # rubocop:disable Metrics/AbcSize
+    def rectangle2(center, width, height, angle) # rubocop:disable Metrics/AbcSize
       x, y = center
       w2 = width / 2
       h2 = height / 2
+      theta = angle / 180.0 * Math::PI
       c = Math.cos(theta)
       s = Math.sin(theta)
       [[x + c * w2 + s * h2, y - s * w2 + c * h2], [x + c * w2 - s * h2, y - s * w2 - c * h2],
