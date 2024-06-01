@@ -8,3 +8,8 @@ require_relative "steersuite/plot_utils"
 require_relative "steersuite/steersim_bin"
 require_relative "steersuite/steersim_plot"
 require_relative "steersuite/steersim_opencv_plot"
+
+def Steersuite.load(file)
+  Steersuite::SteersimResult.from_file(file)
+end
+

@@ -75,7 +75,6 @@ module Steersuite # :nodoc:
     end
 
     def writebin(io = nil)
-      pp io
       raise "No data to write" unless @data
       raise "No filename to write" unless io || @filename
 
@@ -86,7 +85,6 @@ module Steersuite # :nodoc:
       @data.agent_data.each do |t|
         writesection(t.rawdata, "f*", io)
       end
-      pp io.string
       io.close
     end
   end
